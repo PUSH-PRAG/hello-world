@@ -8,7 +8,7 @@ pipeline {
     }
     stage ('Test') {
       steps {
-	  bat 'echo hello Test stage    
+	  bat 'echo hello Test stage'    
 	  }
       
     }
