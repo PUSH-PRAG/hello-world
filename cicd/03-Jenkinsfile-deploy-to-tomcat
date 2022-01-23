@@ -5,14 +5,7 @@ pipeline {
   }
   
   stages {
-        stage ('checkout scm') {
-            steps {
-                // Please avoid committing your test changes to this repository
-                git 'https://github.com/PUSH-PRAG/hello-world.git'
-            }
-        }
-   }
-    stage ('Build') {
+     stage ('Build') {
       steps {
         bat 'mvn clean package'
       }
@@ -24,4 +17,5 @@ pipeline {
         }
       }
     }
+  }
   }
