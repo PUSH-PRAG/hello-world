@@ -4,7 +4,7 @@ pipeline {
     maven 'maven-3.6.3' 
   }
   stages {
-    stage ('Build')
+    stage ('Build') {
       steps {
         bat 'mvn clean package'
       }
@@ -18,5 +18,6 @@ pipeline {
         }
       }
     
+	}
 	}
 	}
