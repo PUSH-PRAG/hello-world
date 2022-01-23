@@ -8,7 +8,7 @@ pipeline {
         stage ('checkout scm') {
             steps {
                 // Please avoid committing your test changes to this repository
-                git branch: 'master', url: "https://github.com/PUSH-PRAG/hello-world.git"
+                git 'https://github.com/PUSH-PRAG/hello-world.git'
             }
         }
    }
@@ -25,4 +25,3 @@ pipeline {
       }
     }
   }
-}
