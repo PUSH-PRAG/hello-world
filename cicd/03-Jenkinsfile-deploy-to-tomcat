@@ -4,11 +4,11 @@ pipeline {
     maven 'maven-3.6.3' 
   }
   
-  stages {
-     stage ('Build') {
-      steps {
-        bat 'mvn clean package'
-      }
+    steps {
+            withMaven(maven : 'maven-3.6.3') {
+                bat'mvn clean compile'
+            }
+        }
     }
     stage ('Deploy') {
       steps {
