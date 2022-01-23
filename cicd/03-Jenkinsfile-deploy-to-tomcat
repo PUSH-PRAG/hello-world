@@ -11,7 +11,7 @@ pipeline {
                 git branch: 'master', url: "https://github.com/PUSH-PRAG/hello-world.git"
             }
         }
-  stages {
+   }
     stage ('Build') {
       steps {
         bat 'mvn clean package'
