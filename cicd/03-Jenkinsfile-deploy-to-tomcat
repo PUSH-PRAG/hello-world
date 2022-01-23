@@ -4,18 +4,22 @@ pipeline {
     maven 'maven-3.6.3' 
   }
   
+    stages{
+    stage ("maven compile")
     steps {
             withMaven(maven : 'maven-3.6.3') {
                 bat'mvn clean compile'
             }
         }
-    }
+		}
+    
     stage ('Deploy') {
       steps {
         script {
           deploy adapters: [tomcat9(credentialsId: 'tomact-dev', path: '', url: 'http://localhost:8080')], contextPath: '/pipeline', onFailure: false, war: 'webapp/target/*.war' 
         }
       }
-    }
-  }
-  }
+    
+	}
+	}
+  
