@@ -4,8 +4,8 @@ pipleline {
     maven 'maven-3.6.3' 
   }
    stages {
-	stage ("Git Checkout"){
-		steps{
+	stage ("Git Checkout") {
+		steps {
 		git credentialsId: 'sshkey', url: 'ssh://git@github.com:PUSH-PRAG/hello-world.git'
 	    }
 		}
