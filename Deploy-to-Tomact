@@ -1,4 +1,4 @@
-pipleline{
+pipleline {
    agent any
    stages {
 	stage ("Git Checkout"){
