@@ -1,5 +1,5 @@
 pipleline{
-   agenet any
+   agent any
    stages {
 	stage ("Git Checkout"){
 		steps{
