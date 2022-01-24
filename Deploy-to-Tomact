@@ -1,0 +1,10 @@
+pipleline{
+   agenet any
+   stages {
+	stage ("Git Checkout"){
+		steps{
+			git credentialsId:	'pushprag', url: 'https://github.com/PUSH-PRAG/hello-world.git'
+	    }
+		}
+	}
+	}
