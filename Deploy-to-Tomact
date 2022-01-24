@@ -6,7 +6,7 @@ pipleline {
    stages {
 	stage ("Git Checkout"){
 		steps{
-		git branch: 'master', credentialsId: 'sshkey', url: 'ssh://git@github.com:PUSH-PRAG/hello-world.git'
+		git credentialsId: 'sshkey', url: 'ssh://git@github.com:PUSH-PRAG/hello-world.git'
 	    }
 		}
 	}
