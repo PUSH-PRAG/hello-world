@@ -13,7 +13,7 @@ pipeline {
     stage ('Deploy') {
       steps {
         script {
-          deploy adapters: [tomcat9(credentialsId: 'tomcat_credential', path: '', url: 'http://52.66.88.59:8090')], contextPath: '/pushparaj', onFailure: false, war: 'webapp/target/*.war' 
+          deploy adapters: [tomcat9(credentialsId: 'tomcat_credential', path: '', url: 'http://52.66.88.59:8090')], contextPath: '/pushparaj', onFailure: false, war: target/helloworld.war' 
         }
       }
     }
