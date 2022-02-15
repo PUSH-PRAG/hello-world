@@ -1,10 +1,19 @@
-pipleline {
-   agent any
-   stages {
-	stage ("Git Checkout") {
-		steps {
-		git credentialsId: 'pushprag', url: 'https://github.com/PUSH-PRAG/hello-world'
-	    }
-		}
-	}
-	}
+pipeline {
+  agent any
+  tools {
+    maven 'maven-3.6.3' 
+  }
+  stages {
+    stage ('Build') {
+      steps {
+        sh 'mvn clean package'
+      }
+    }
+    stage ('Deploy') {
+      steps {
+        script {
+          deploy adapters: [tomcat9(credentialsId: 'tomcat_credential', path: '', url: 'http://52.66.88.59:8090')], contextPath: '/pushparaj', onFailure: false, war: 'webapp/target/*.war' 
+        }
+      }
+    }
+  }
