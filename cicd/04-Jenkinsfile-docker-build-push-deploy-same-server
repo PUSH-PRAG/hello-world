@@ -16,7 +16,7 @@ pipeline {
         stage('Docker Build') {
             steps {
                 script {
-                    docker.build("pushagal/hello-world:${TAG}")
+                    docker.build("pushagal/push:${TAG}")
                 }
             }
         }
@@ -24,15 +24,15 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'docker_credential') {
-                        docker.image("pushagal/hello-world:${TAG}").push()
-                        docker.image("pushagal/hello-world:${TAG}").push("latest")
+                        docker.image("pushagal/push:${TAG}").push()
+                        docker.image("pushagal/push:${TAG}").push("latest")
                     }
                 }
             }
         }
         stage('Deploy'){
             steps {
-               bat "docker run --name hello-world -d -p 9004:8080 pushagal/hello-world:${TAG}"
+               bat "docker run --name push -d -p 9004:8080 pushagal/push:${TAG}"
             }
         }
     }
