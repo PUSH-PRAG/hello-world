@@ -1,3 +1,3 @@
 From tomcat:8-jre8 
 
-COPY ./target/hello-world.war /usr/local/tomcat/webapps
+COPY C:\ProgramData\Jenkins\.jenkins\workspace\JenkinsTomcatIntegration\target\push.war C:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps
